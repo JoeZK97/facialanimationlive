@@ -30,10 +30,12 @@ app = Flask(__name__, static_url_path='/static')
 
 
 # Load the trained generator model
-generator = load_model('C:/Users/BenLXH/Desktop/FYP/FACE/generator_model.h5')  # Replace with the path to your generator model
+current_directory = os.path.dirname(__file__)
+
+generator = load_model('os.path.join(current_directory, "generator_model.h5")')  # Replace with the path to your generator model
 # Load the pre-trained model
-model_path = "C:/Users/BenLXH/Desktop/FYP/FACE/male_to_female.h5"  # Update with the actual path to your model
-fmodel_path = "C:/Users/BenLXH/Desktop/FYP/FACE/female_to_male.h5"  # Update with the actual path to your model
+model_path = ('os.path.join(current_directory, "male_to_female.h5")')  # Update with the actual path to your model
+fmodel_path = ('os.path.join(current_directory, "female_to_male.h5")')  # Update with the actual path to your model
 
 model = tf.keras.models.load_model(model_path)
 # Compile the model
